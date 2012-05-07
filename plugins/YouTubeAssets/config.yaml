@@ -1,0 +1,43 @@
+name: YouTube Assets
+id: youtubeassets
+description: Import and use YouTube videos as native MT assets.
+author_name: Arseni Mouchinski
+author_email: arseni@mouchinski.com
+author_link: http://github.com/amouchinski
+doc_link: http://github.com/After6Services/mt-plugin-youtube-assets
+icon: plugin_icon.png
+
+version: 0.4
+schema_version: 0.3
+
+object_types:
+    asset.youtube_video: MT::Asset::YouTubeVideo
+    blog:
+        youtube_video_embed_options: hash meta
+
+applications:
+    cms:
+        menus:
+            create:youtube_video:
+                label: YouTube Video
+                order: 320
+                dialog: youtube_video_create
+                view: blog
+                permission: upload
+
+        methods:
+            youtube_video_create: $YouTubeAssets::YouTubeAssets::CMS::youtube_video_create
+
+        callbacks:
+            post_init: $YouTubeAssets::YouTubeAssets::Util::post_init
+            template_source.asset_insert: $YouTubeAssets::YouTubeAssets::CMS::asset_insert_source
+            template_source.archetype_editor: $YouTubeAssets::YouTubeAssets::CMS::editor_source
+            template_param.edit_entry: $YouTubeAssets::YouTubeAssets::CMS::edit_entry_param
+            template_source.asset_list: $YouTubeAssets::YouTubeAssets::CMS::asset_list_source
+
+text_filters:
+    embed_youtube_videos:
+        label: YouTube Videos
+        condition: >-
+            sub { 0 }
+        handler: $YouTubeAssets::YouTubeAssets::Util::embed_filter

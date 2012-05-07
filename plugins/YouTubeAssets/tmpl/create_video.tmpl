@@ -1,0 +1,104 @@
+<mt:setvar name="page_title" value="Add YouTube Video">
+
+<mt:setvarblock name="system_msg">
+    <mt:if name="invalid_video_url">
+        <mtapp:statusmsg
+            id="invalid_video_url"
+            class="error">This video URL doesn't seem to be valid.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="video_already_exists">
+        <mtapp:statusmsg
+            id="video_already_exists"
+            class="info">It looks like this video has already been imported &mdash; <a href='<mt:CGIPath><mt:AdminScript>?__mode=view&_type=asset&blog_id=<mt:var name="blog_id">&id=<mt:var name="original_asset_id">' target="_top">preview video</a>.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_error">
+        <mtapp:statusmsg
+            id="api_error"
+            class="error">Something went wrong with a YouTube API query :(<br>Error message:<br><pre><mt:var name="api_error" escape="html"></pre>
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_data_error">
+        <mtapp:statusmsg
+            id="api_data_error"
+            class="error">Couldn't read a YouTube API response :(
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="error_video_not_found">
+        <mtapp:statusmsg
+            id="api_error_not_found"
+            class="error">This video couldn't be found on YouTube.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_error_service_unavailable">
+        <mtapp:statusmsg
+            id="api_error_service_unavailable"
+            class="error">YouTube API error: The service is temporarily unavailable.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="service_error">
+        <mtapp:statusmsg
+            id="service_error"
+            class="error">YouTube API error &mdash; please try again later.
+        </mtapp:statusmsg>
+    </mt:if>
+</mt:setvarblock>
+
+<mt:setvarblock name="html_head" append="1">
+<script type="text/javascript">
+TC.attachLoadEvent(function() {
+    var url = getByID("video_url");
+    if (url) {
+        url.focus();
+    }
+});
+</script>
+</mt:setvarblock>
+
+<mt:include name="dialog/header.tmpl">
+
+<$mt:var name="system_msg"$>
+
+<form method="post" action="<mt:var name="script_url">" name="youtube_video_create" id="youtube_video_create">
+    <input type="hidden" name="__mode" value="youtube_video_create" />
+    <input type="hidden" name="blog_id" value="<mt:var name="blog_id">" />
+    <input type="hidden" name="type" value="<mt:var name="type">" />
+    <input type="hidden" name="continue_args" value="<mt:var name="continue_args" escape="html">" />
+    <input type="hidden" name="no_insert" value="<mt:var name="no_insert" escape="html">" />
+    <input type="hidden" name="submit" value="1" />
+    <input type="hidden" name="magic_token" value="<mt:var name="magic_token">" />
+
+    <mtapp:setting
+        id="video_url"
+        label="Video URL"
+        label_class="top-label"
+        hint="YouTube video address, e.g. http://www.youtube.com/watch?v=LbNl3J8HXw4."
+        show_hint="1">
+        <input type="text" name="video_url" id="video_url" value="<mt:var name="video_url" escape="html">" style="width: 99%" />
+    </mtapp:setting>
+
+    <div class="actions-bar">
+        <div class="actions-bar-inner pkg actions">
+        <button
+            type="submit"
+            accesskey="a"
+            class="primary-button"
+            title="Add (a)">Add</button>
+        <button
+            onclick="closeDialog(); return false"
+            type="submit"
+            class="cancel"
+            accesskey="x"
+            title="Cancel (x)">Cancel</button>
+        </div>
+    </div>
+</form>
+
+<mt:include name="dialog/footer.tmpl">

@@ -1,0 +1,66 @@
+<style>
+.dialog #image_alignment-field {
+    position: static;
+    margin-bottom: 1em;
+}
+.field {
+    margin-bottom: 1em;
+}
+.dialog #image_alignment-field .field-content .icon-align-none {
+    margin-right: 1em;
+}
+</style>
+
+
+<input type="hidden" name="wrap_text" value="1" />
+<input type="hidden" name="include" id="display_image" value="1" />
+
+<div id="new_entry_prefs">
+
+<mtapp:setting
+    id="size"
+    label="Player Size"
+    label_class="top-header"
+    hint=""
+    show_hint="0">
+    <mt:loop name="sizes">
+    <input type="radio" name="size" id="size_<mt:var name="value">" class="rb" value="<mt:var name="value">" <mt:if var="default_size" eq="$value">checked="checked" </mt:if>/>
+    <label for="size_<mt:var name="value">" class="" style="margin-right: 1em"><mt:var name="name"></label>
+    </mt:loop>
+    <input type="radio" name="size" id="size_custom" class="rb" value="custom" <mt:if var="default_size" eq="custom">checked="checked" </mt:if>/>
+    <label for="size_custom" class="" style="margin-right: 0em">Custom</label>
+    <input type="text" name="width" id="width" class="" value="<mt:var name="width">" size="3" /> × <input type="text" name="height" id="height" class="" value="<mt:var name="height">" size="3" /> px
+</mtapp:setting>
+
+<mtapp:setting
+    id="image_alignment"
+    label="<__trans phrase="Alignment">"
+    label_class="top-header"
+    hint=""
+    show_hint="0">
+    <input type="radio" name="align" id="align-none" class="rb" value="none" <mt:if name="align_none">checked="checked" </mt:if>/>
+    <label for="align-none" class="icon-left icon-left-xwide icon-align icon-align-none"><__trans phrase="None"></label>
+
+    <input type="radio" name="align" id="align-left" class="rb" value="left" <mt:if name="align_left">checked="checked" </mt:if>/>
+    <label for="align-left" class="icon-left-xwide icon-align icon-align-left"><__trans phrase="Left"></label>
+
+    <input type="radio" name="align" id="align-center" class="rb" value="center" <mt:if name="align_center">checked="checked" </mt:if>/>
+    <label for="align-center" class="icon-left-xwide icon-align icon-align-center"><__trans phrase="Center"></label>
+
+    <input type="radio" name="align" id="align-right" class="rb" value="right" <mt:if name="align_right">checked="checked" </mt:if>/>
+    <label for="align-right" class="icon-left-xwide icon-align icon-align-right"><__trans phrase="Right"></label>
+</mtapp:setting>
+
+<mt:if name="can_save_settings">
+    <mtapp:setting
+        id="save_settings"
+        label="Remember these settings"
+        label_class="no-header"
+        hint=""
+        show_hint="0">
+        <input type="checkbox" name="save_settings" id="save_settings" value="1" />
+        <label for="save_settings">Remember these settings</label>
+    </mtapp:setting>
+</mt:if>
+
+</div>
