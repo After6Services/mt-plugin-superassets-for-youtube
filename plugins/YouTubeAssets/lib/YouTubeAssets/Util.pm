@@ -36,15 +36,18 @@ sub post_init {
 #
 sub is_valid_video_url {
     my $url = shift;
-    return $url && $url =~ m'youtube\.com/watch\?v=[\w-]+ | youtu\.be/[\w-]+'xi;
+    return $url && $url =~ m'^\s* (?:https?://)? (?:www\.)? (?: youtube\.com/watch\?v=[\w-]+ | youtu\.be/[\w-]+ ) \s*$'xi;
 }
 
 #
 # Get video id from a URL
 #
+# http://youtube.com/watch?v=kux5dxuJCi4
+# http://youtu.be/kux5dxuJCi4
+#
 sub video_id_from_url {
-    my $url = shift;
-    return $url && $url =~ m'youtube\.com/watch\?v=([\w-]+) | youtu\.be/([\w-]+)'xi ? $1 : undef;
+    my $url = shift or return;
+    return ( $url =~ m'youtube\.com/watch\?v=([\w-]+)'i || $url =~ m'youtu\.be/([\w-]+)'i ) ? $1 : undef;
 }
 
 sub embed_filter {

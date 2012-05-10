@@ -20,7 +20,10 @@ sub youtube_video_create {
     if ($params{video_url}) {
         if (is_valid_video_url($params{video_url})) {
             if ( $video_id = video_id_from_url($params{video_url}) ) {
-                if ( my ($v) = MT::Asset::YouTubeVideo->search_by_meta('youtube_video_id', $video_id) ) {
+                if ( my ($v) = MT::Asset::YouTubeVideo->search_by_meta(
+                        'youtube_video_id', $video_id
+                     )
+                   ) {
                     $params{original_asset_id} = $v->id;
                     $errors{video_already_exists} = 1;
                 }
