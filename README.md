@@ -41,7 +41,7 @@ YouTube videos work just like other Movable Type's assets and can be accessed vi
 
 Videos can be filtered by class name:
 
-    <mt:Assets class="youtube_video" lastn="1">
+    <mt:Assets type="youtube_video" lastn="1">
     ...
     </mt:Assets>
 
