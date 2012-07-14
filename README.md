@@ -30,7 +30,7 @@ No configuration is required.
 YouTube videos work just like other Movable Type's assets and can be accessed via tags *Asset*, *Assets*, *EntryAssets* and *PageAssets*:
 
     <mt:EntryAssets>
-    <mt:if tag="AssetType" eq="youtube_video">
+    <mt:if tag="AssetType" eq="youtube video">
         <div>
         <strong><mt:AssetLabel escape="html"></strong>
         <p><mt:AssetDescription escape="html"></p>
@@ -41,7 +41,7 @@ YouTube videos work just like other Movable Type's assets and can be accessed vi
 
 Videos can be filtered by class name:
 
-    <mt:Assets type="youtube_video" lastn="1">
+    <mt:Assets type="youtube video" lastn="1">
     ...
     </mt:Assets>
 
