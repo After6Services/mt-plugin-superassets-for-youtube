@@ -7,7 +7,7 @@ author_link: http://github.com/After6Services
 doc_link: http://github.com/After6Services/mt-plugin-youtube-assets
 icon: plugin_icon.png
 
-version: 0.5
+version: 0.5bc1
 schema_version: 0.3
 
 object_types:
