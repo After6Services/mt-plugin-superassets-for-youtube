@@ -1,9 +1,9 @@
-name: YouTube Assets
+name: YouTubeAssets
 id: youtubeassets
 description: Import and use YouTube videos as native MT assets.
 author_name: After6 Services LLC
 author_email: customer.service@after6services.com
-author_link: http://github.com/After6Services
+author_link: http://www.after6services.com/
 doc_link: http://github.com/After6Services/mt-plugin-youtube-assets
 icon: plugin_icon.png
 
