@@ -7,7 +7,7 @@ use base 'MT::Asset';
 
 require MT;
 require MT::Util;
-use YouTubeAssets::Util qw(:all);
+use SuperAssetsForYouTube::Util qw(:all);
 
 __PACKAGE__->install_properties({
     class_type  => 'youtube_video',

@@ -1,4 +1,4 @@
-package YouTubeAssets::Util;
+package SuperAssetsForYouTube::Util;
 
 use strict;
 use warnings;
@@ -81,7 +81,7 @@ sub embed_video {
 }
 
 sub plugin {
-    return MT->component("YouTubeAssets");
+    return MT->component("SuperAssetsForYouTube");
 }
 
 1;
