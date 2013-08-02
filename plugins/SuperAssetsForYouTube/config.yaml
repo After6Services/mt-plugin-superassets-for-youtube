@@ -1,0 +1,43 @@
+name: SuperAssets for YouTube
+id: superassetsforyoutube
+description: Import and use YouTube videos as native MT assets.
+author_name: After6 Services LLC
+author_email: customer.service@after6services.com
+author_link: http://www.after6services.com/plugins/
+doc_link: http://github.com/After6Services/mt-plugin-superassets-for-youtube
+icon: plugin_icon.png
+
+version: 1.0
+schema_version: 0.4
+
+object_types:
+    asset.youtube_video: MT::Asset::YouTubeVideo
+    blog:
+        youtube_video_embed_options: hash meta
+
+applications:
+    cms:
+        menus:
+            create:youtube_video:
+                label: YouTube Video
+                order: 320
+                dialog: youtube_video_create
+                view: blog
+                permission: upload
+
+        methods:
+            youtube_video_create: $SuperAssetsForYouTube::SuperAssetsForYouTube::CMS::youtube_video_create
+
+        callbacks:
+            post_init: $SuperAssetsForYouTube::SuperAssetsForYouTube::Util::post_init
+            template_source.asset_insert: $SuperAssetsForYouTube::SuperAssetsForYouTube::CMS::asset_insert_source
+            template_source.archetype_editor: $SuperAssetsForYouTube::SuperAssetsForYouTube::CMS::editor_source
+            template_param.edit_entry: $SuperAssetsForYouTube::SuperAssetsForYouTube::CMS::edit_entry_param
+            template_source.asset_list: $SuperAssetsForYouTube::SuperAssetsForYouTube::CMS::asset_list_source
+
+text_filters:
+    embed_youtube_videos:
+        label: YouTube Videos
+        condition: >-
+            sub { 0 }
+        handler: $SuperAssetsForYouTube::SuperAssetsForYouTube::Util::embed_filter
