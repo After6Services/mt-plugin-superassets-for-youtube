@@ -1,10 +1,10 @@
-package YouTubeAssets::CMS;
+package SuperAssetsForYouTube::CMS;
 
 use strict;
 use warnings;
 
 require MT::Asset::YouTubeVideo;
-use YouTubeAssets::Util qw(:all);
+use SuperAssetsForYouTube::Util qw(:all);
 use Encode;
 
 sub youtube_video_create {
@@ -207,7 +207,7 @@ sub editor_source {
     # adding some css
     $$tmpl .= q{
         <mt:setvarblock name="html_head" append="1">
-        <link rel="stylesheet" type="text/css" href="<mt:var name="static_uri">plugins/YouTubeAssets/editor.css" />
+        <link rel="stylesheet" type="text/css" href="<mt:var name="static_uri">plugins/SuperAssetsForYouTube/editor.css" />
         </mt:setvarblock>
     };
 

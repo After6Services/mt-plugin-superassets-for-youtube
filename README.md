@@ -1,21 +1,23 @@
-# YouTube Assets
+# SuperAssets for YouTube
 
-YouTube Assets is a Movable Type plugin that allows users to import and use YouTube videos as assets in the Movable Type Asset Manager.  It is part of the SuperAssets series of plugins from After6 Services LLC.
+SuperAssets for YouTube is a Movable Type plugin that allows users to import and use YouTube videos as assets in the Movable Type Asset Manager.  It is part of the SuperAssets series of plugins from After6 Services LLC.
 
 # Installation
 
+Install the Perl modules discussed above using installation procedures for [CPAN](http://www.cpan.org), [CPANminus](https://raw.github.com/miyagawa/cpanminus/master/cpanm), [PPM](http://code.activestate.com/ppm/), or the packaging system that is supported by your operating system.
+
 After downloading and uncompressing this package:
 
-1. Upload the entire YouTubeAssets directory within the plugins directory of this distribution to the corresponding plugins directory within the Movable Type installation directory.
+1. Upload the entire SuperAssetsForYouTube directory within the plugins directory of this distribution to the corresponding plugins directory within the Movable Type installation directory.
     * UNIX example:
-        * Copy mt-plugin-youtube-assets/plugins/YouTubeAssets/ into /var/wwww/cgi-bin/mt/plugins/.
+        * Copy mt-plugin-superassets-for-youtube/plugins/SuperAssetsForYouTube/ into /var/wwww/cgi-bin/mt/plugins/.
     * Windows example:
-        * Copy mt-plugin-youtube-assets/plugins/YouTubeAssets/ into C:\webroot\mt-cgi\plugins\ .
-2. Upload the entire YouTubeAssets directory within the mt-static directory of this distribution to the corresponding mt-static/plugins directory that your instance of Movable Type is configured to use.  Refer to the StaticWebPath configuration directive within your mt-config.cgi file for the location of the mt-static directory.
+        * Copy mt-plugin-superassets-for-youtube/plugins/SuperAssetsForYouTube/ into C:\webroot\mt-cgi\plugins\ .
+2. Upload the entire SuperAssetsForYouTube directory within the mt-static directory of this distribution to the corresponding mt-static/plugins directory that your instance of Movable Type is configured to use.  Refer to the StaticWebPath configuration directive within your mt-config.cgi file for the location of the mt-static directory.
     * UNIX example: If the StaticWebPath configuration directive in mt-config.cgi is: **StaticWebPath  /var/www/html/mt-static/**,
-        * Copy mt-plugin-youtube-assets/mt-static/plugins/YouTubeAssets/ into /var/www/html/mt-static/plugins/.
+        * Copy mt-plugin-superassets-for-youtube/mt-static/plugins/SuperAssetsForYouTube/ into /var/www/html/mt-static/plugins/.
     * Windows example: If the StaticWebPath configuration directive in mt-config.cgi is: **StaticWebPath D:/htdocs/mt-static/**,
-        * Copy mt-plugin-youtube-assets/mt-static/plugins/YouTubeAssets/ into D:/htdocs/mt-static/.
+        * Copy mt-plugin-superassets-for-youtube/mt-static/plugins/SuperAssetsForYouTube/ into D:/htdocs/mt-static/.
 
 # Configuration
 
@@ -84,15 +86,15 @@ Although After6 Services LLC has developed this plugin, After6 only provides sup
 
 # License
 
-This plugin is licensed under The BSD 2-Clause License, http://www.opensource.org/licenses/bsd-license.php.  See LICENSE.md for the exact license.
+This plugin is licensed under [The MIT License](http://www.opensource.org/licenses/mit-license.php).  See LICENSE.md for the exact license.
 
 # Authorship
 
-YouTube Assets was originally written by Arseni Mouchinski with help from Dave Aiello and Jeremy King.
+SuperAssets for YouTube was originally written by Arseni Mouchinski with help from Dave Aiello and Jeremy King.
 
 # Copyright
 
-Copyright &copy; 2012, After6 Services LLC.  All Rights Reserved.
+Copyright &copy; 2012-2013, After6 Services LLC.  All Rights Reserved.
 
 YouTube is a registered trademark of YouTube LLC.
 
